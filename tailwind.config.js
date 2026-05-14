@@ -7,6 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Karla', 'sans-serif'],
+        heading: ['var(--font-rubik)', 'sans-serif'],
+      },
+      colors: {
+        'brand-red': '#ee3a48',
+        'brand-pink': '#f8a3a1',
+        'brand-dark': '#2B161B',
+        'brand-gray': '#453E3E',
+        'brand-light': '#F7F3F5',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

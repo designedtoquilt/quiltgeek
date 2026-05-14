@@ -3,25 +3,229 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --color-red: #ee3a48;
+  --color-pink: #f8a3a1;
+  --color-dark: #2B161B;
+  --color-gray: #453E3E;
+  --color-light: #F7F3F5;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Karla', sans-serif;
+  color: #453E3E;
+  background: #FFFFFF;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 2.5rem;
+  @apply sm:text-5xl md:text-6xl;
+}
+
+h2 {
+  font-size: 2rem;
+  @apply sm:text-4xl;
+}
+
+h3 {
+  font-size: 1.5rem;
+  @apply sm:text-2xl;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Buttons */
+@layer components {
+  .btn-primary {
+    @apply bg-red-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 hover:bg-red-700 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-red-600 text-red-600 px-6 py-3 rounded-full font-semibold transition-all duration-200 hover:bg-red-50;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-full font-semibold transition-all duration-200 hover:bg-gray-300;
+  }
+}
+
+/* Links */
+a {
+  color: #ee3a48;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #d6141f;
+}
+
+/* Sections */
+section {
+  @apply py-12 sm:py-20 md:py-24;
+}
+
+.section-light {
+  @apply bg-brand-light;
+}
+
+.section-white {
+  @apply bg-white;
+}
+
+.section-gray {
+  @apply bg-gray-50;
+}
+
+/* Container */
+.container-max {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6 transition-all duration-200 hover:shadow-md;
+}
+
+.card-featured {
+  @apply bg-white rounded-3xl shadow-sm border border-gray-200 p-8 transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Feature Cards */
+.feature-card {
+  @apply bg-white p-8 rounded-3xl border border-gray-200 text-center transition-all duration-200 hover:shadow-lg;
+}
+
+/* Review Cards */
+.review-card {
+  @apply bg-white p-6 rounded-lg border border-gray-300 shadow-sm transition-all duration-200;
+}
+
+/* Icon Circles */
+.icon-circle {
+  @apply w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl font-bold;
+}
+
+/* Accordion */
+.accordion-header {
+  @apply w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition cursor-pointer;
+}
+
+.accordion-header.active {
+  @apply bg-gray-100;
+}
+
+.accordion-content {
+  @apply px-6 py-4 bg-gray-50 text-gray-700 border-b border-gray-300;
+}
+
+/* Tabs */
+.tab-button {
+  @apply flex-1 px-6 py-4 text-center font-semibold transition-all duration-200;
+}
+
+.tab-button.active {
+  @apply bg-red-600 text-white;
+}
+
+.tab-button.inactive {
+  @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+}
+
+/* Image Placeholders */
+.placeholder {
+  @apply flex items-center justify-center bg-brand-light rounded-lg w-full;
+}
+
+.placeholder-text {
+  @apply text-center text-brand-gray;
+}
+
+/* Navigation Links */
+.nav-link {
+  @apply text-gray-700 hover:text-red-600 transition-colors duration-200;
+}
+
+.nav-link.active {
+  @apply text-red-600 font-semibold;
+}
+
+/* Utility Classes */
+.text-brand-dark {
+  @apply text-[#2B161B];
+}
+
+.text-brand-gray {
+  @apply text-[#453E3E];
+}
+
+.text-brand-light {
+  @apply text-[#F7F3F5];
+}
+
+.bg-brand-light {
+  @apply bg-[#F7F3F5];
+}
+
+.bg-brand-red {
+  @apply bg-[#ee3a48];
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  section {
+    @apply py-12;
+  }
+}
+
+/* Smooth Transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Focus States for Accessibility */
+button:focus-visible,
+a:focus-visible {
+  @apply outline-2 outline-offset-2 outline-red-600;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    @apply bg-white;
+  }
 }
